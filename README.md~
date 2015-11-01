@@ -1,35 +1,35 @@
 # Circuit-Simulation-Engine
 Computing nodal voltages and voltage source currents.
 
-![Image of Circuit-Simulation-Engine](https://github.com/inas404/Circuit-Simulation-Engine/arch.png)
+![Image of Circuit-Simulation-Engine](https://github.com/inas404/Circuit-Simulation-Engine/blob/master/arch.png)
 
-Takes input as netlist format:
-Component_Type | Node1 | Node2 | Value | Initial_Value
+Takes input as netlist format:  
+Component_Type | Node1 | Node2 | Value | Initial_Value  
+<br />
+*Component_Type stands for the type of the component. It can be one of the following:  
+ Voltage Source "Vsrc".  
+ Current Source "Isrc".  
+ Resistance "R".  
+ Inductor "I".  
+ Capacitor "C".  
+<br />
+*Node1 and Node2 stands for the nodes‟ numbers to which the component is connected to.  
+*Value is the physical value of the component.  
+*Initial_Value is the initial current or voltage that is observed on the component at time=0.  
+<br />
+Sample input (no transient):  
+<br />
+Vsrc 1 0 4 0  
+Vsrc 3 2 6 0  
+R 1 2 1 0  
+R 2 0 4 0  
+R 3 0 2 0  
+Isrc 1 2 1 0  
 
-*Component_Type stands for the type of the component. It can be one of the following:
- Voltage Source "Vsrc".
- Current Source "Isrc".
- Resistance "R".
- Inductor "I".
- Capacitor "C".
-
-*Node1 and Node2 stands for the nodes‟ numbers to which the component is connected to.
-*Value is the physical value of the component.
-*Initial_Value is the initial current or voltage that is observed on the component at time=0.
-
-Sample input (no transient):
-
-Vsrc 1 0 4 0
-Vsrc 3 2 6 0
-R 1 2 1 0
-R 2 0 4 0
-R 3 0 2 0
-Isrc 1 2 1 0
-
-![Image of Circuit-Simulation-Engine](https://github.com/inas404/Circuit-Simulation-Engine/circuit1.png)
-
-Sample output:
-
+![Image of Circuit-Simulation-Engine](https://github.com/inas404/Circuit-Simulation-Engine/blob/master/circuit1.png)
+<br />
+Sample output:  
+<br />
 The circuit Graph representation (node,value):
 node0
 node1 -> (0,4.00) -> (2,1.00) -> (2,1.00)
@@ -41,15 +41,15 @@ t	 |     V1   |     V2   |     V3   |   I1  |   I2
 
 
 Sample input (with transient):
-
+'''
 R 1 0 1 0
 C 1 0 1 0
 R 1 2 1 0
 I 2 0 1 0
 Isrc 2 0 1 0
-
+'''
 Sample output:
-
+'''
 The circuit Graph representation (node,value):
 node0
 node1 -> (0,1.00) -> (0,1.00) -> (2,1.00)
@@ -77,3 +77,4 @@ t	 |     V1   |     V2   |   I1
 1.8	 | 0.149473 | 0.126616 | 1.022857 
 1.9	 | 0.132897 | 0.100037 | 1.032861 
 2.0	 | 0.117132 | 0.076610 | 1.040522 
+'''
